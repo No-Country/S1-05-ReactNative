@@ -1,4 +1,14 @@
-# My Universal React Project
+# Wallet for Cryptos using React Native
+
+<h2>collaborators</h2>
+<h4>Put your name here</h4>
+<h4>Put your name here</h4>
+<h4>Put your name here</h4>
+<h4>Put your name here</h4>
+<h4>Put your name here</h4>
+<h4>Put your name here</h4>
+<h4>Alejo Piñeiro</h4>
+
 
 <p>
   <!-- iOS -->
