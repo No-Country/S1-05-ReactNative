@@ -36,16 +36,20 @@ const styles = StyleSheet.create({
         margin: 12
     },
     btnSignGoogle: {
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "white",
+        borderRadius: 20,
         height: 40,
         marginTop: 20,
     },
     btnSignFacebook: {
+        flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#3A579B",
+        borderRadius: 20,
         height: 40,
         marginTop: 20,
         marginBottom: 50
@@ -54,7 +58,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "#5467FF",
+        borderRadius: 20,
         height: 40,
+    },
+    cryptoWallerLogo: {
+        width: 180,
+        height: 180,
+        marginBottom: 10
+    },
+    socialMediasLogo: {
+        width: 20,
+        height: 20,
+        marginEnd: 25
     }
 })
 
