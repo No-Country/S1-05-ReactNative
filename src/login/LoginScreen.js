@@ -3,6 +3,8 @@ import { SvgUri } from 'react-native-svg';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './styles';
 
+/* Comentario de prueba */
+
 const LoginScreen = () => {
     return(
         <View style={styles.container}>
