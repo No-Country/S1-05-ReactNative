@@ -28,12 +28,19 @@ const styles = StyleSheet.create({
         color: "#64656A",
         textAlign: "right",
     },
-    input: {
+    inputsContainer: {
+        flexDirection: "row",
+        alignItems: "center",
         backgroundColor: "#262A34",
         borderRadius: 20,
         height: 60,
         padding: 10,
         margin: 12
+    },
+    input: {
+        height: 60,
+        width: 260, 
+        color: "#66676C"
     },
     btnSignGoogle: {
         flexDirection: "row",
@@ -64,6 +71,7 @@ const styles = StyleSheet.create({
     cryptoWallerLogo: {
         width: 180,
         height: 180,
+        marginTop: 20,
         marginBottom: 10
     },
     socialMediasLogo: {
