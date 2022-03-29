@@ -18,6 +18,7 @@ const AppNavigations = () => {
           name="Home"
           component={Home}
           options={{
+            headerShown: false,
             tabBarLabel: "Home",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="home" color={color} size={size} />
