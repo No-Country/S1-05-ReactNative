@@ -15,10 +15,10 @@ const Tab = createMaterialBottomTabNavigator();
 
 const AppNavigations = () => {
 
-  const { auth } = useSelector( state => state );
+  const { auth } = useSelector(state => state);
 
-  if(!auth.session){
-    return(
+  if (!auth.session) {
+    return (
       <LoginScreen />
     );
   }
@@ -29,22 +29,22 @@ const AppNavigations = () => {
           tabBarIcon: ({ color }) => {
             if (route.name === 'Home') {
               return (
-                <FontAwesomeIcon 
-                  icon={ faHome }
+                <FontAwesomeIcon
+                  icon={faHome}
                   color={color}
                 />
               );
             } else if (route.name === 'Wallet') {
               return (
-                <FontAwesomeIcon 
-                  icon={ faWallet }
+                <FontAwesomeIcon
+                  icon={faWallet}
                   color={color}
                 />
               );
             } else {
               return (
-                <FontAwesomeIcon 
-                  icon={ faUser }
+                <FontAwesomeIcon
+                  icon={faUser}
                   color={color}
                 />
               )
@@ -54,10 +54,10 @@ const AppNavigations = () => {
           tabBarActiveTintColor: 'white',
         })}
       >
-        
+
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Wallet" component={Wallet} />
-        <Tab.Screen name="Profile" component={Profile} options={{ tabBarBadge: 3 }}/>
+        <Tab.Screen name="Profile" component={Profile} options={{ tabBarBadge: 3 }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

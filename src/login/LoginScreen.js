@@ -2,23 +2,30 @@ import React from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './styles';
 import { useForm, Controller } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faAt, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+
+import { getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../firebase-config';
 
 import googleLogo from '../assets/google-icon.png';
 import facebookLogo from '../assets/facebook-icon.png';
 import cryptoWalletLogo from '../assets/crypto-wallet-logo.png';
+
 import { startLoginEmailPass } from '../redux/actions/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 /* Comentario de prueba */
 
 const LoginScreen = () => {
 
-    const [ showPass, setShowPass ] = React.useState( true );
-
+    const [showPass, setShowPass] = React.useState(true);
     const dispatch = useDispatch();
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
@@ -27,13 +34,22 @@ const LoginScreen = () => {
         }
     });
 
+    /* Loeo con email/username y password */
     const signIn = (data) => {
-        if(data.username !== '' && data.password !== ''){
-            dispatch(startLoginEmailPass( data.username, data.password )) 
-        }else{
+        if (data.username !== '' && data.password !== '') {
+
+            signInWithEmailAndPassword(auth, data.username, data.password)
+            .then(() => {
+                dispatch(startLoginEmailPass(data))
+            })
+            .catch(() => {
+                alert("User or password are wrong!")
+            });
+
+        } else {
             alert("username and password cant be empty")
         }
-    }      
+    }
 
     const signInWithGoogle = () => {
         alert("Google login comming soon!!")
@@ -61,13 +77,13 @@ const LoginScreen = () => {
                     }}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <View style={styles.inputsContainer}>
-                            <FontAwesomeIcon icon={faUser} color="#64656A" style={{marginEnd: 20}}/>
+                            <FontAwesomeIcon icon={faAt} color="#64656A" style={{ marginEnd: 20 }} />
                             <TextInput
-                                placeholder="Username"
+                                placeholder="User email"
                                 placeholderTextColor="#66676C"
                                 style={styles.input}
-                                onBlur={ onBlur }
-                                onChangeText={ onChange }
+                                onBlur={onBlur}
+                                onChangeText={onChange}
                                 value={value}
                             />
                         </View>
@@ -81,25 +97,25 @@ const LoginScreen = () => {
                     }}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <View style={styles.inputsContainer}>
-                            <FontAwesomeIcon icon={faLock} color="#64656A" style={{marginEnd: 20}}/>
+                            <FontAwesomeIcon icon={faLock} color="#64656A" style={{ marginEnd: 20 }} />
                             <TextInput
                                 placeholder="Password"
                                 placeholderTextColor="#66676C"
                                 style={styles.input}
                                 secureTextEntry={showPass}
-                                onBlur={ onBlur }
-                                onChangeText={ onChange }
+                                onBlur={onBlur}
+                                onChangeText={onChange}
                                 value={value}
                             />
-                            <Pressable onPress={ showPassword }>
-                                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} color="#64656A"/>
+                            <Pressable onPress={showPassword}>
+                                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} color="#64656A" />
                             </Pressable>
                         </View>
                     )}
                     name="password"
                 />
                 <Pressable
-                    onPress={() => alert( session )}
+                    onPress={() => alert(session)}
                 >
                     <Text style={styles.span}>Forgot Password?</Text>
                 </Pressable>
@@ -124,7 +140,7 @@ const LoginScreen = () => {
                 </Pressable>
 
                 <Pressable>
-                    <Text style={{ color: "#404EB3", textAlign: "center"}}>
+                    <Text style={{ color: "#404EB3", textAlign: "center" }}>
                         Don't Have An Account?
                     </Text>
                 </Pressable>

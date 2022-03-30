@@ -1,12 +1,10 @@
-//import { auth, googleAuthProvider, signInWithPopup } from 'base/firebase-config';
-
 import { types } from "../types/types";
 //import { setError } from './ui';
 
 /* Login and Google Login actions */
-export const startLoginEmailPass = ( username, password) => {
+export const startLoginEmailPass = ( {username, password} ) => {
     return (dispatch) => {
-        dispatch( login( username, password ) );
+        dispatch( login( username, password ) ); 
     }
 }
 
