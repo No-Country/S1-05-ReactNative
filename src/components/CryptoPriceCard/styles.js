@@ -7,8 +7,13 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 20,
     borderRadius: 10,
-    marginTop: 10,
+    marginBottom: 10,
     alignItems: "center",
+  },
+  imageCrypto: {
+    width: 30,
+    height: 30,
+    marginRight: 15,
   },
 });
 

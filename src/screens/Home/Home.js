@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
 import CryptoPriceCard from "../../components/CryptoPriceCard/CryptoPriceCard";
+import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
 
 const Home = () => {
   return (
@@ -48,10 +49,7 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.homeScreen}>
-        <Text>Crypto Market</Text>
-        <CryptoPriceCard />
-      </View>
+      <CryptoMarket />
     </View>
   );
 };
