@@ -7,25 +7,17 @@ import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAt, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { getAuth } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from '../../firebase-config';
-
 import googleLogo from '../assets/google-icon.png';
 import facebookLogo from '../assets/facebook-icon.png';
 import cryptoWalletLogo from '../assets/crypto-wallet-logo.png';
 
-import { startLoginEmailPass } from '../redux/actions/auth';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-
-/* Comentario de prueba */
+import { startGoogleLogin, startLoginEmailPass } from '../redux/actions/auth';
+//import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 const LoginScreen = () => {
 
     const [showPass, setShowPass] = React.useState(true);
     const dispatch = useDispatch();
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
 
     const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
@@ -34,26 +26,30 @@ const LoginScreen = () => {
         }
     });
 
-    /* Loeo con email/username y password */
+    /* Login with email and password */
     const signIn = (data) => {
         if (data.username !== '' && data.password !== '') {
-
-            signInWithEmailAndPassword(auth, data.username, data.password)
-            .then(() => {
-                dispatch(startLoginEmailPass(data))
-            })
-            .catch(() => {
-                alert("User or password are wrong!")
-            });
-
+            dispatch(startLoginEmailPass(data))
         } else {
             alert("username and password cant be empty")
         }
     }
 
-    const signInWithGoogle = () => {
-        alert("Google login comming soon!!")
+    /* Login with google */
+    const signInWithGoogle = async () => {
+        // try{
+        //     await GoogleSignin.hasPlayServices();
+
+        //     const { idToken } = await GoogleSignin.signIn(GoogleSignin);            
+
+        //     dispatch(startGoogleLogin( idToken ))
+            
+        // }catch(error){
+        //     alert(error.message);
+        //     alert(error.code)
+        // }
     }
+
     const signInWithFacebook = () => {
         alert("Facebook login comming soon!!")
     }
@@ -119,7 +115,6 @@ const LoginScreen = () => {
                 >
                     <Text style={styles.span}>Forgot Password?</Text>
                 </Pressable>
-
 
             </View>
             <View style={styles.btnContainer}>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>700011416699-7kk37n52lf9qqlmjtgke58jhp8idchhp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.700011416699-7kk37n52lf9qqlmjtgke58jhp8idchhp</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>700011416699-vvio39tj2d0fsbaj41q1nqdorbtgsbme.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC2sIkS2eLdDe802Wc6A-9sTTpbRjKQ6pc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>700011416699</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>cryptowallet.com</string>
+	<key>PROJECT_ID</key>
+	<string>react-native-nc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>react-native-nc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:700011416699:ios:aea86c2097f81d8d2466de</string>
+</dict>
+</plist>

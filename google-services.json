@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "700011416699",
+    "project_id": "react-native-nc",
+    "storage_bucket": "react-native-nc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700011416699:android:c53874e561f81c5d2466de",
+        "android_client_info": {
+          "package_name": "cryptowallet.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700011416699-vvio39tj2d0fsbaj41q1nqdorbtgsbme.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cryptowallet.com",
+            "certificate_hash": "1ad166644a9fe0b786218dcd19edb80833244622"
+          }
+        },
+        {
+          "client_id": "700011416699-aef7jb1ieqbcdgv9r51v29ra437tne2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDat46x_TTies1WZMTwysOOriCWxyXisFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700011416699-aef7jb1ieqbcdgv9r51v29ra437tne2c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "700011416699-7kk37n52lf9qqlmjtgke58jhp8idchhp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "cryptowallet.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

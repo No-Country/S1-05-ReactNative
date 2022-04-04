@@ -1,31 +1,35 @@
 import { types } from "../types/types";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
+import { auth } from "../../../firebase-config";
+
 //import { setError } from './ui';
-
 /* Login and Google Login actions */
-export const startLoginEmailPass = ( {username, password} ) => {
+export const startLoginEmailPass = ( data ) => {
     return (dispatch) => {
-        dispatch( login( username, password ) ); 
+        signInWithEmailAndPassword(auth, data.username, data.password)
+        .then(({ user }) => {
+            dispatch( login( user.uid, user.displayName ) ); 
+        })
+        .catch((error) => {
+            alert(error.message)
+        });
     }
 }
 
-export const startGoogleLogin = () => {
+export const startGoogleLogin = ( { idToken } ) => {
     return (dispatch) => {
-
-        signInWithPopup(auth, googleAuthProvider)
-            .then(({ user }) => {
-                console.log(user)
-                dispatch(
-                    login(user.uid, user.displayName)
-                )
-            });
+        signInWithCredential(GoogleAuthProvider.credential(idToken))
+        .then(( { user } ) => {
+            dispatch( login(user.uid, user.displayName) );  
+        })
     }
 }
 
-export const login = ( displayName, password ) => ({
+export const login = ( uid, displayName ) => ({
     type: types.login,
     payload: {
-        displayName,
-        password
+        uid,
+        displayName
     }
 });
 
