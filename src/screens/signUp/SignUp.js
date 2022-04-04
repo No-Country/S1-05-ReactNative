@@ -1,32 +1,36 @@
 import React from 'react';
-import { View, Text, TextInput, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Image, SafeAreaView, Button  } from 'react-native';
 import StyleSheetValidation from 'react-native/Libraries/StyleSheet/StyleSheetValidation';
+import styles from './styles'
 
 const SignUp = () => {
 
   return (
-    <View style={styles.containerImage }>
-        <Image
+
+    <SafeAreaView style={styles.containerImage } >
+       <Image
           style={ styles.splashImage }
           source={ require( '../../../assets/images/splash.png' )}
         />
-    </View>
+      <TextInput
+        style={ styles.inputs }
+        placeholder="FULL NAME"
+      />
+      <TextInput
+        style={ styles.inputs }
+        placeholder="PASSWORD"
+      />
+      <TextInput
+        style={ styles.inputs }
+        placeholder="E-MAIL"
+      />
+      <TextInput
+        style={ styles.inputs }
+        placeholder="PHONE"
+      />
+      <Button title="Botonazo" style={ styles.formButton }/>
+    </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  containerImage: {
-    width: 400, 
-    height: 400, 
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: "center"
-  },
-  splashImage: {
-    width: 90, 
-    height: 90,
-    alignItems: 'center'
-  },
-});
 
 export default SignUp
