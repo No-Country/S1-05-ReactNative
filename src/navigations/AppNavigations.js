@@ -7,6 +7,7 @@ import Home from "../screens/Home/Home";
 import Profile from "../screens/Profile/Profile";
 import Wallet from "../screens/Wallet/Wallet";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import SignUp from "../screens/signUp/SignUp";
 
 //const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,10 +37,10 @@ const AppNavigations = () => {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={Profile}
+          name="SignUp"
+          component={SignUp}
           options={{
-            tabBarLabel: "Profile",
+            tabBarLabel: "singUp",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="account"
