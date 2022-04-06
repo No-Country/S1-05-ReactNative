@@ -1,31 +1,31 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    containerImage: {
+    container: {
       width: 400, 
-      height: 400, 
+      height: 400,
+      top: 40, 
       flex: 1,
-      alignItems: 'center',
-      justifyContent: "center"
+      alignItems: 'center'
     },
     splashImage: {
-      width: 90, 
-      height: 90,
-      alignItems: 'center'
+      width: 120, 
+      height: 120,
+      bottom: 20
     },
     inputs: {
       color: "#66676C",
-      width: 200, 
+      width: 250, 
       height: 40,
       margin: 18,
       borderWidth: 1,
       borderColor: "#CCCCCC",
       padding: 10,
       borderRadius: 10
-    },
-    formButton: {
-      width: 200, 
-      height: 40,
+    },  
+    button: {
+      width: 250, 
+      height: 50,
       backgroundColor: "#4D6CFE"
     }
   });
