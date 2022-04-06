@@ -5,10 +5,9 @@
 <p>Put your name here</p>
 <p>Put your name here</p>
 <p>Put your name here</p>
-<p>Put your name here</p>
 <p>Alejo Piñeiro</p>
 <p>Luca Rojas Massey</p>
-
+<p>Omar Lestrade Zapata</p>
 
 <p>
   <!-- iOS -->
