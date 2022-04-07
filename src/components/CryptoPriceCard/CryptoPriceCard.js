@@ -4,7 +4,7 @@ import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
 const CryptoPriceCard = ({ symbol, image, price }) => {
-  console.log(symbol);
+  //console.log(symbol);
   return (
     <>
       <View style={styles.cardCrypto}>
