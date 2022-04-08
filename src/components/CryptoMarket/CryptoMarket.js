@@ -30,6 +30,7 @@ const CryptoMarket = () => {
         renderItem={({ item }) => {
           return (
             <CryptoPriceCard
+              item={item}
               symbol={item.symbol}
               image={item.image}
               price={item.current_price}
