@@ -37,10 +37,10 @@ const AppNavigations = () => {
           }}
         />
         <Tab.Screen
-          name="SignUp"
-          component={SignUp}
+          name="Profile"
+          component={Profile}
           options={{
-            tabBarLabel: "singUp",
+            tabBarLabel: "Profile",
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="account"

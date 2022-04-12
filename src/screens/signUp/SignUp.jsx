@@ -7,7 +7,7 @@ import BlueButton from '../../components/buttons/BlueButton'
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth'
 import { initializeApp} from 'firebase/app'
 import { firebaseConfig } from '../../firebase/firebase'
-import ScrollViewNativeComponent from 'react-native/Libraries/Components/ScrollView/ScrollViewNativeComponent';
+//import ScrollViewNativeComponent from 'react-native/Libraries/Components/ScrollView/ScrollViewNativeComponent';
 
 const HomeScreen  = () => {
   return (
@@ -18,18 +18,20 @@ const HomeScreen  = () => {
 }
 
 const SignUp = () => {
+  const [fullName, setFullName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
+  const [phone, setPhone] = React.useState('')
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app)
 
   const handleCreateAccount = () => {
     createUserWithEmailAndPassword(auth, email, password)
-    .then(() => {
+    .then((userCredential) => {
       console.log('Account created!')
-      const user = userCredemtial.user
-      Alert(user)
+      const user = userCredential.user
+      console.log(user)
     })
     .catch(error => {
       console.log(error)
@@ -38,7 +40,7 @@ const SignUp = () => {
 
   const handleSingIn = () => {
     signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
+    .then((userCredential) => {
       console.log('Signed in!')
       const user =userCredential.user
       console.log(user)
@@ -75,7 +77,7 @@ const SignUp = () => {
         placeholder="PHONE"
       />
       <BlueButton
-        onPress={handleCreateAccount}
+        onPressProp={handleCreateAccount}
       />
     </View>
   )
