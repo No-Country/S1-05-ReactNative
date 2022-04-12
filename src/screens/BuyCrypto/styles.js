@@ -105,6 +105,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
   },
+  symbolStyles: {
+    color: "black",
+    fontSize: 18,
+    height: 20,
+    width: "100%",
+  },
 });
 
 export default styles;
