@@ -2,9 +2,7 @@
 
 <h2>collaborators</h2>
 <p>Put your name here</p>
-<p>Put your name here</p>
-<p>Put your name here</p>
-<p>Put your name here</p>
+<p>Bryan Scalzo</p>
 <p>Alejo Piñeiro</p>
 <p>Luca Rojas Massey</p>
 <p>Omar Lestrade Zapata</p>

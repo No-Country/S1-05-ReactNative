@@ -1,23 +1,61 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import Home from "../screens/Home/Home";
 import Profile from "../screens/Profile/Profile";
 import Wallet from "../screens/Wallet/Wallet";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 import CoinDetails from "../screens/CoinDetails/CoinDetails";
 
-//const Tab = createMaterialBottomTabNavigator();
+import BuyCrypto from "../screens/BuyCrypto/BuyCrypto";
+import SellCrypto from "../screens/SellCrypto/SellCrypto";
+import AddCash from "../screens/AddCash/AddCash";
+import { createStackNavigator } from "@react-navigation/stack";
+
+
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
+
+const Stack = createStackNavigator();
+export const HomeScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="BuyCrypto" component={BuyCrypto} />
+      <Stack.Screen name="SellCrypto" component={SellCrypto} />
+      <Stack.Screen name="AddCash" component={AddCash} />
+         
+        <Stack.Screen
+          name='Coin Details'
+          component={CoinDetails}
+          options={{
+            headerBackTitleVisible: false,
+          }}
+          />
+    </Stack.Navigator>
+  );
+};
+
 const AppNavigations = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarHideOnKeyboard: true,
+        }}
+      >
         <Tab.Screen
           name="Home"
-          component={MyStack}
+
+          component={HomeScreen}
+
           options={{
             headerShown: false,
             tabBarLabel: "Home",
@@ -57,30 +95,7 @@ const AppNavigations = () => {
   );
 };
 
-function MyStack (){
-  return(
-      <Stack.Navigator
-        initialRouteName="HomeScreen"
-        >
-        <Stack.Screen
-          name='HomeScreen'
-          component={Home}
-          options={{
-            headerShown: false,
-          }}
-          />
-        <Stack.Screen
-          name='Coin Details'
-          component={CoinDetails}
-          options={{
-            headerBackTitleVisible: false,
-          }}
-          />
-          
 
-      </Stack.Navigator>
-  )
-}
 
 
 

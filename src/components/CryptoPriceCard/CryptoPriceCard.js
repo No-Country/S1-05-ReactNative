@@ -3,11 +3,13 @@ import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import styles from "./styles";
 
+
 import { formatNumber } from "../../helpers/numbers";
 
-const CryptoPriceCard = ({ item }) => {
+const CryptoPriceCard = ({ item, symbol, image, price }) => {
   const navigation = useNavigation();
   const {symbol,image,current_price}=item;
+
   return (
     <>
       <Pressable onPress={() => navigation.navigate(
