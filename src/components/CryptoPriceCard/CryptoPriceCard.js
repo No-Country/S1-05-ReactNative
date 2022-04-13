@@ -1,12 +1,13 @@
 import React from "react";
 import { View, Text, Image, Pressable } from "react-native";
-import styles from "./styles";
-import { MaterialCommunityIcons } from "@expo/vector-icons/";
 import { useNavigation } from "@react-navigation/native";
+import styles from "./styles";
 
+import { formatNumber } from "../../helpers/numbers";
 
-const CryptoPriceCard = ({ item, symbol, image, price }) => {
+const CryptoPriceCard = ({ item }) => {
   const navigation = useNavigation();
+  const {symbol,image,current_price}=item;
   return (
     <>
       <Pressable onPress={() => navigation.navigate(
@@ -26,7 +27,7 @@ const CryptoPriceCard = ({ item, symbol, image, price }) => {
           </View>
           <View>
             <Text>
-              1 {symbol.toUpperCase()} = {price} USD
+              1 {symbol.toUpperCase()} = {formatNumber(current_price)} USD
             </Text>
           </View>
         </View>

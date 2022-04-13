@@ -1,21 +1,25 @@
-import { View, Text, ScrollView, FlatList } from "react-native";
+import { View, Text, Image, FlatList } from "react-native";
 import React, { useState, useEffect } from "react";
 import CryptoPriceCard from "../CryptoPriceCard/CryptoPriceCard";
 import styles from "./styles";
 import axios from "axios";
+import loadingSVG from '../../../assets/images/loadingGrey.svg';
 
 const CryptoMarket = () => {
   const [coins, setCoins] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   async function loadData() {
     try {
+      setLoading(true)
       const response = await axios.get(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
-      //console.log(response.data);
       setCoins(response.data);
-      console.log(coins);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false)
     }
   }
   useEffect(() => {
@@ -24,20 +28,33 @@ const CryptoMarket = () => {
   return (
     <View style={styles.homeScreen}>
       <Text style={styles.cryptoTitle}>Crypto Market</Text>
-      <FlatList
-        style={styles.cryptoList}
-        data={coins}
-        renderItem={({ item }) => {
-          return (
-            <CryptoPriceCard
-              item={item}
-              symbol={item.symbol}
-              image={item.image}
-              price={item.current_price}
-            ></CryptoPriceCard>
-          );
-        }}
-      />
+      {loading ?
+        <View style={styles.loadingCard}>
+          <View>
+            <Image
+              style={styles.loadingImg}
+              source={{
+                uri: loadingSVG,
+              }}
+            />
+          </View>
+          <View>
+            <Text style={styles.loadingText}>
+              Loading top 100...
+            </Text>
+          </View>
+        </View>
+        :
+        <FlatList
+          style={styles.cryptoList}
+          data={coins}
+          renderItem={({ item }) => {
+            return (
+              <CryptoPriceCard item={item} />
+            );
+          }}
+        />
+      }
     </View>
   );
 };
