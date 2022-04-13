@@ -6,32 +6,30 @@ import axios from "axios";
 import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
 import CryptoChart from "../../components/CryptoChart/CryptoChart";
 import { formatNumber } from "../../helpers/numbers";
-import loadingSVG from '../../../assets/images/loading.svg'
-
+import loadingSVG from "../../../assets/images/loading.svg";
 
 const CoinDetails = ({ route }) => {
-
   const { coin } = route.params;
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
   async function loadData() {
     try {
-      setLoading(true)
+      setLoading(true);
       const response = await axios.get(
-        "https://api.coingecko.com/api/v3/coins/" + coin.id + "/market_chart?vs_currency=usd&days=30&interval=daily"
+        "https://api.coingecko.com/api/v3/coins/" +
+          coin.id +
+          "/market_chart?vs_currency=usd&days=30&interval=daily"
       );
       setHistory(
         response.data.prices.map((item) => {
-          return item[1]
+          return item[1];
         })
-      )
-    }
-    catch (error) {
+      );
+    } catch (error) {
       console.error(error);
-    }
-    finally {
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   }
   useEffect(() => {
@@ -51,30 +49,32 @@ const CoinDetails = ({ route }) => {
             />
           </View>
           <View>
-            <Text style={styles.title}>
-              {coin.name}
-            </Text>
+            <Text style={styles.title}>{coin.name}</Text>
           </View>
         </View>
         <View style={styles.coinDetailPrice}>
           <View>
             <Text style={styles.price}>
-              1 {coin.symbol.toUpperCase()} = {formatNumber(coin.current_price)} USD
+              1 {coin.symbol.toUpperCase()} = {formatNumber(coin.current_price)}{" "}
+              USD
             </Text>
           </View>
         </View>
 
         <View style={styles.chartLoading}>
-          {loading ?
+          {loading ? (
             <View style={styles.chartLoading}>
               <Image
                 style={styles.loadingImg}
                 source={{
                   uri: loadingSVG,
-                }} />
+                }}
+              />
               <Text style={styles.loadingText}>Loading Chart...</Text>
             </View>
-            : <CryptoChart chartData={history} />}
+          ) : (
+            <CryptoChart chartData={history} />
+          )}
         </View>
 
         <View style={styles.rung}>
@@ -93,7 +93,13 @@ const CoinDetails = ({ route }) => {
         </View>
         <View style={styles.rung}>
           <View>
-            <Text style={(coin.price_change_percentage_24h >= 0) ? styles.green : styles.red}>
+            <Text
+              style={
+                coin.price_change_percentage_24h >= 0
+                  ? styles.green
+                  : styles.red
+              }
+            >
               24hs {formatNumber(coin.price_change_percentage_24h, 3)}%
             </Text>
           </View>
@@ -101,7 +107,6 @@ const CoinDetails = ({ route }) => {
       </View>
 
       <CryptoMarket />
-
     </View>
   );
 };

@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 10,
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   coinDetailPrice: {
     flexDirection: "row",
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   header: {
-    width: '100%',
+    width: "100%",
     backgroundColor: "#4D6CFE",
     paddingBottom: 20,
     borderBottomLeftRadius: 10,
@@ -35,25 +35,25 @@ const styles = StyleSheet.create({
   },
   price: {
     color: "white",
-    fontSize: '1.5em',
+    fontSize: 22,
     fontWeight: "bold",
     justifyContent: "center",
     borderStyle: "solid",
     borderColor: "#bbb",
     borderWidth: 1,
     borderRadius: 4,
-    padding: 5
+    padding: 5,
   },
   title: {
     color: "white",
-    fontSize: '2em',
+    fontSize: 22,
     fontWeight: "bold",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   text: {
     color: "white",
-    fontSize: '1.2em',
+    fontSize: 18,
   },
   rung: {
     flexDirection: "row",
@@ -61,20 +61,20 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingLeft: 20,
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
   },
   red: {
     color: "#aa0000",
-    fontSize: '1.2em',
-    fontWeight: "bold"
+    fontSize: 16,
+    fontWeight: "bold",
   },
   green: {
     color: "#00ff00",
-    fontSize: '1.2em',
+    fontSize: 16,
     fontWeight: "bold",
   },
   justifyContentCenter: {
-    justifyContent: "center"
+    justifyContent: "center",
   },
   chartLoading: {
     backgroundColor: "#2D4CdE",
@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
   },
   loadingImg: {
     width: 80,
-    height: 80
+    height: 80,
   },
   loadingText: {
     color: "white",
     textAlign: "center",
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 });
 
 export default styles;

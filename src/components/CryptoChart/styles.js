@@ -4,15 +4,15 @@ const styles = StyleSheet.create({
   cryptoChart: {
     backgroundColor: "#2D4CdE",
     color: "white",
-    fontSize: "1em"
+    fontSize: 18,
   },
   cryptoChartTitle: {
     fontWeight: "bold",
     color: "white",
-    fontSize: "1em",
+    fontSize: 18,
     paddingLeft: 10,
-    paddingTop: 10
-  }
+    paddingTop: 10,
+  },
 });
 
 export default styles;
