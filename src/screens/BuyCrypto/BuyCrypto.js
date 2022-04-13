@@ -58,6 +58,7 @@ const BuyCrypto = () => {
             >
               {coins.map((number) => (
                 <Picker.Item
+                  key={number.id}
                   label={number.symbol.toUpperCase()}
                   value={number.symbol}
                   index={number.length}
