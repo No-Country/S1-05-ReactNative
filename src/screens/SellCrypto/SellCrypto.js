@@ -9,9 +9,8 @@ const SellCrypto = () => {
   const [selectedCoin, setSelectedCoin] = useState("BTC");
   const [crypto, setCrypto] = useState("0");
   const [currentValue, setcurrentValue] = useState(0);
-  const [index, setIndex] = useState(0);
   function changeCurrentValue() {
-    const result = coins.map((word) => {
+    coins.map((word) => {
       if (word.symbol === selectedCoin) {
         setcurrentValue(word.current_price);
       }
@@ -42,12 +41,13 @@ const SellCrypto = () => {
             <Picker
               selectedValue={setSelectedCoin}
               style={{ height: 50, width: 100 }}
-              onValueChange={(itemValue, itemIndex) => {
-                setSelectedCoin(itemValue), setIndex(itemIndex);
+              onValueChange={(itemValue) => {
+                setSelectedCoin(itemValue);
               }}
             >
               {coins.map((number) => (
                 <Picker.Item
+                  key={number.id}
                   label={number.symbol.toUpperCase()}
                   value={number.symbol}
                   index={number.length}
