@@ -4,12 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
+<<<<<<< HEAD
 import CryptoPriceCard from "../../components/CryptoPriceCard/CryptoPriceCard";
 import SignUp from "../signUp/SignUp"
 
 const Tab = createNativeStackNavigator();
+=======
+import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
+>>>>>>> origin
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.homeContainer}>
       <View style={styles.topBar}>
@@ -31,7 +35,12 @@ const Home = () => {
           <Text style={styles.balanceText}>My USD Balance</Text>
         </View>
         <View style={styles.myOperations}>
-          <TouchableOpacity style={styles.operations}>
+          <TouchableOpacity
+            style={styles.operations}
+            onPress={() => {
+              navigation.navigate("AddCash");
+            }}
+          >
             <MaterialCommunityIcons
               color="white"
               name="plus-circle-outline"
@@ -39,7 +48,12 @@ const Home = () => {
             />
             <Text style={styles.operationName}>Add</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.operations}>
+          <TouchableOpacity
+            style={styles.operations}
+            onPress={() => {
+              navigation.navigate("BuyCrypto");
+            }}
+          >
             <MaterialCommunityIcons
               color="white"
               name="arrow-left-circle-outline"
@@ -48,7 +62,12 @@ const Home = () => {
 
             <Text style={styles.operationName}>Buy</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.operations}>
+          <TouchableOpacity
+            style={styles.operations}
+            onPress={() => {
+              navigation.navigate("SellCrypto");
+            }}
+          >
             <MaterialCommunityIcons
               color="white"
               name="arrow-right-circle-outline"
@@ -58,10 +77,7 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.homeScreen}>
-        <Text>Crypto Market</Text>
-        <CryptoPriceCard />
-      </View>
+      <CryptoMarket />
     </View>
   );
 };

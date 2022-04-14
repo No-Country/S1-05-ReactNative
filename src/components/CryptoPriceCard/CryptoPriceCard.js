@@ -1,25 +1,24 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import styles from "./styles";
-import { MaterialCommunityIcons } from "@expo/vector-icons/";
 
-const CryptoPriceCard = (cryptocurrency) => {
+const CryptoPriceCard = ({ symbol, image, price }) => {
+  //console.log(symbol);
   return (
     <>
       <View style={styles.cardCrypto}>
         <View>
-          <MaterialCommunityIcons color="#f7931a" name="bitcoin" size={30} />
+          <Image
+            style={styles.imageCrypto}
+            source={{
+              uri: image,
+            }}
+          />
         </View>
         <View>
-          <Text>1 BTH = 40.000 USD</Text>
-        </View>
-      </View>
-      <View style={styles.cardCrypto}>
-        <View>
-          <MaterialCommunityIcons color="black" name="ethereum" size={30} />
-        </View>
-        <View>
-          <Text>1 ETH = 40.000 USD</Text>
+          <Text>
+            1 {symbol.toUpperCase()} = {price} USD
+          </Text>
         </View>
       </View>
     </>

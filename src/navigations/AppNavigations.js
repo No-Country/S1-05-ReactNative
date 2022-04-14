@@ -1,22 +1,49 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
 import Home from "../screens/Home/Home";
 import Profile from "../screens/Profile/Profile";
 import Wallet from "../screens/Wallet/Wallet";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+<<<<<<< HEAD
 import SignUp from "../screens/signUp/SignUp";
+=======
+import BuyCrypto from "../screens/BuyCrypto/BuyCrypto";
+import SellCrypto from "../screens/SellCrypto/SellCrypto";
+import AddCash from "../screens/AddCash/AddCash";
+import { createStackNavigator } from "@react-navigation/stack";
+>>>>>>> origin
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+export const HomeScreen = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="BuyCrypto" component={BuyCrypto} />
+      <Stack.Screen name="SellCrypto" component={SellCrypto} />
+      <Stack.Screen name="AddCash" component={AddCash} />
+    </Stack.Navigator>
+  );
+};
 const AppNavigations = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarHideOnKeyboard: true,
+        }}
+      >
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={HomeScreen}
           options={{
             headerShown: false,
             tabBarLabel: "Home",
