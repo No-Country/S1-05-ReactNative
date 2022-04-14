@@ -1,5 +1,6 @@
-import AppNavigations from "./src/navigations/AppNavigations";
+import React from 'react'
+import SignUp from "./src/screens/signUp/SignUp";
 
 export default function App() {
-  return <AppNavigations />;
+  return <SignUp />;
 }

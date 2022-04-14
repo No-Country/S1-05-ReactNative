@@ -4,7 +4,7 @@ import style from "./styles"
 
 const BlueButtonLogin = () => {
   return (
-    <View style={ style.buttonContainer}>
+    <View style={style.buttonContainer}>
       <TouchableOpacity
         style={{
           ...style.button,
@@ -16,7 +16,7 @@ const BlueButtonLogin = () => {
             ...style.buttonText,
             color: "#f1f1f1",
           }} >
-          Registrarse
+          Login
         </Text>
       </TouchableOpacity>
     </View>

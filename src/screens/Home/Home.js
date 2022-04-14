@@ -1,8 +1,13 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
 import CryptoPriceCard from "../../components/CryptoPriceCard/CryptoPriceCard";
+import SignUp from "../signUp/SignUp"
+
+const Tab = createNativeStackNavigator();
 
 const Home = () => {
   return (
@@ -12,9 +17,14 @@ const Home = () => {
           <View>
             <Text style={styles.nameText}>Hi, Juan Perez</Text>
           </View>
+            <NavigationContainer>
           <View style={styles.nameImage}>
             <MaterialCommunityIcons color="white" name="account" size={30} />
+              <Tab.Navigator initialRouteName="singUp">
+                <Tab.Screen name="singUp" component={SignUp} />
+              </Tab.Navigator>
           </View>
+            </NavigationContainer>
         </View>
         <View style={styles.myBalance}>
           <Text style={styles.balanceNumber}>$1,245</Text>

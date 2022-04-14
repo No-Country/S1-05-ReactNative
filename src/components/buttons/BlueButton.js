@@ -18,7 +18,7 @@ function BlueButton({ onPressProp }) {
             ...style.buttonText,
             color: "#f1f1f1",
           }}>
-          Registrarse
+          signUp
         </Text>
       </TouchableOpacity>
     </View>
