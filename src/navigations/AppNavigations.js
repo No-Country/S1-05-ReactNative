@@ -1,6 +1,5 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-//import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Home from "../screens/Home/Home";
@@ -9,9 +8,9 @@ import Wallet from "../screens/Wallet/Wallet";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import SignUp from "../screens/signUp/SignUp";
 
-//const Tab = createMaterialBottomTabNavigator();
 const Tab = createBottomTabNavigator();
 const AppNavigations = () => {
+
   return (
     <NavigationContainer>
       <Tab.Navigator>

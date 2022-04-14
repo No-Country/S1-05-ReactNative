@@ -23,7 +23,7 @@ const HomeScreen = () => {
   )
 }
 
-const SignUp = () => {
+const Login = () => {
   const [fullName, setFullName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -93,4 +93,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login
