@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#2D4CdE",
     color: "white",
     fontSize: 18,
+    height:220
+  
   },
   cryptoChartTitle: {
     fontWeight: "bold",

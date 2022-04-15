@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import PropTypes from 'prop-types'
 import styles from "./styles";
 
-import { formatNumber } from "../../helpers/numbers";
+//import { formatNumber } from "../../helpers/numbers";
 
 const CryptoPriceCard = ({ item }) => {
   const navigation = useNavigation();
@@ -23,13 +24,13 @@ const CryptoPriceCard = ({ item }) => {
             <Image
               style={styles.imageCrypto}
               source={{
-                uri: item.image,
+                uri:image,
               }}
             />
           </View>
           <View>
             <Text>
-              1 {item.symbol.toUpperCase()} = {formatNumber(item.current_price)}
+              1 {symbol.toUpperCase()} = {current_price}
               USD
             </Text>
           </View>
@@ -40,3 +41,7 @@ const CryptoPriceCard = ({ item }) => {
 };
 
 export default CryptoPriceCard;
+
+CryptoPriceCard.propTypes = {
+  item: PropTypes.object.isRequired
+}

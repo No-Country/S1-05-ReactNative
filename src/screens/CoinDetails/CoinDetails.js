@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./styles";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
 import CryptoChart from "../../components/CryptoChart/CryptoChart";
-import { formatNumber } from "../../helpers/numbers";
+//import { formatNumber } from "../../helpers/numbers";
 import loadingSVG from "../../../assets/images/loading.svg";
 
 const CoinDetails = ({ route }) => {
@@ -18,8 +19,8 @@ const CoinDetails = ({ route }) => {
       setLoading(true);
       const response = await axios.get(
         "https://api.coingecko.com/api/v3/coins/" +
-          coin.id +
-          "/market_chart?vs_currency=usd&days=30&interval=daily"
+        coin.id +
+        "/market_chart?vs_currency=usd&days=30&interval=daily"
       );
       setHistory(
         response.data.prices.map((item) => {
@@ -55,7 +56,7 @@ const CoinDetails = ({ route }) => {
         <View style={styles.coinDetailPrice}>
           <View>
             <Text style={styles.price}>
-              1 {coin.symbol.toUpperCase()} = {formatNumber(coin.current_price)}{" "}
+              1 {coin.symbol.toUpperCase()} = {coin.current_price}{" "}
               USD
             </Text>
           </View>
@@ -64,12 +65,12 @@ const CoinDetails = ({ route }) => {
         <View style={styles.chartLoading}>
           {loading ? (
             <View style={styles.chartLoading}>
-              <Image
+              {/* <Image
                 style={styles.loadingImg}
                 source={{
                   uri: loadingSVG,
                 }}
-              />
+              /> */}
               <Text style={styles.loadingText}>Loading Chart...</Text>
             </View>
           ) : (
@@ -87,7 +88,7 @@ const CoinDetails = ({ route }) => {
         <View style={styles.rung}>
           <View>
             <Text style={styles.text}>
-              Market Cap: {formatNumber(coin.market_cap)} USD
+              Market Cap: {coin.market_cap} USD
             </Text>
           </View>
         </View>
@@ -100,7 +101,7 @@ const CoinDetails = ({ route }) => {
                   : styles.red
               }
             >
-              24hs {formatNumber(coin.price_change_percentage_24h, 3)}%
+              24hs {coin.price_change_percentage_24h}%
             </Text>
           </View>
         </View>
@@ -112,3 +113,7 @@ const CoinDetails = ({ route }) => {
 };
 
 export default CoinDetails;
+
+CoinDetails.propTypes = {
+  route: PropTypes.object.isRequired
+}

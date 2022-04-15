@@ -1,23 +1,20 @@
-import * as React from "react";
+import React from "react";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Home from "../screens/Home/Home";
 import Profile from "../screens/Profile/Profile";
 import Wallet from "../screens/Wallet/Wallet";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
 import CoinDetails from "../screens/CoinDetails/CoinDetails";
-
 import BuyCrypto from "../screens/BuyCrypto/BuyCrypto";
 import SellCrypto from "../screens/SellCrypto/SellCrypto";
 import AddCash from "../screens/AddCash/AddCash";
-import { createStackNavigator } from "@react-navigation/stack";
-
 
 const Tab = createBottomTabNavigator();
-
 const Stack = createStackNavigator();
+
 export const HomeScreen = () => {
   return (
     <Stack.Navigator>
@@ -31,14 +28,13 @@ export const HomeScreen = () => {
       <Stack.Screen name="BuyCrypto" component={BuyCrypto} />
       <Stack.Screen name="SellCrypto" component={SellCrypto} />
       <Stack.Screen name="AddCash" component={AddCash} />
-         
-        <Stack.Screen
-          name='Coin Details'
-          component={CoinDetails}
-          options={{
-            headerBackTitleVisible: false,
-          }}
-          />
+      <Stack.Screen
+        name='Coin Details'
+        component={CoinDetails}
+        options={{
+          headerBackTitleVisible: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };
@@ -52,7 +48,7 @@ const AppNavigations = () => {
         }}
       >
         <Tab.Screen
-          name="Home"
+          name="HomeScreen"
 
           component={HomeScreen}
 
@@ -91,12 +87,7 @@ const AppNavigations = () => {
       </Tab.Navigator>
     </NavigationContainer>
 
-    
+
   );
 };
-
-
-
-
-
 export default AppNavigations;

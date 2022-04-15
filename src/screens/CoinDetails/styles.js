@@ -3,8 +3,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     color: "white",
-    flex: 1,
-    alignItems: "center",
+    flex: 3,
+    flexDirection:"column",
+    alignItems: "flex-start",
     justifyContent: "center",
   },
   imageCrypto: {
@@ -79,8 +80,7 @@ const styles = StyleSheet.create({
   chartLoading: {
     backgroundColor: "#2D4CdE",
     color: "white",
-    minHeight: 200,
-    flex: 1,
+    height:300,
     alignItems: "center",
     justifyContent: "center",
   },

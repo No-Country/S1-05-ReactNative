@@ -32,12 +32,12 @@ const CryptoMarket = () => {
       {loading ?
         <View style={styles.loadingCard}>
           <View>
-            <Image
+            {/* <Image
               style={styles.loadingImg}
               source={{
                 uri: loadingSVG,
               }}
-            />
+            /> */}
           </View>
           <View>
             <Text style={styles.loadingText}>

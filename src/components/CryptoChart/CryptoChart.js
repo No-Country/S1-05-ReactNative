@@ -1,5 +1,6 @@
-import { View, Text, Dimensions } from "react-native";
 import React from "react";
+import PropTypes from 'prop-types';
+import { View, Text, Dimensions } from "react-native";
 import {
   LineChart,
 } from "react-native-chart-kit";
@@ -51,3 +52,7 @@ const CryptoChart = ({ chartData }) => {
 };
 
 export default CryptoChart;
+
+CryptoChart.propTypes = {
+  chartData: PropTypes.array.isRequired
+}
