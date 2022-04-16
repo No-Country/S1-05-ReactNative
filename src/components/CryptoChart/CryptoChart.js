@@ -45,7 +45,6 @@ const CryptoChart = ({ chartData }) => {
         style={{
           marginVertical: 8,
           marginBottom: 0,
-          marginRight:50
         }}
       />
     </View>

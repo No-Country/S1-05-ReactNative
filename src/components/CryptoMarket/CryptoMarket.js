@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, RefreshControl } from "react-native";
 import React, { useState, useEffect } from "react";
 import CryptoPriceCard from "../CryptoPriceCard/CryptoPriceCard";
 import styles from "./styles";
@@ -15,7 +15,6 @@ const CryptoMarket = () => {
       const response = await axios.get(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       );
-
       setCoins(response.data);
     } catch (error) {
       console.error(error);
@@ -23,9 +22,17 @@ const CryptoMarket = () => {
       setLoading(false)
     }
   }
+
   useEffect(() => {
     loadData();
   }, []);
+
+  const [refreshing, setRefreshing] = React.useState(false);
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    loadData().then(() => setRefreshing(false));
+  }, []);
+
   return (
     <View style={styles.homeScreen}>
       <Text style={styles.cryptoTitle}>Crypto Market</Text>
@@ -47,6 +54,7 @@ const CryptoMarket = () => {
         </View>
         :
         <FlatList
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           style={styles.cryptoList}
           data={coins}
           renderItem={({ item }) => {
