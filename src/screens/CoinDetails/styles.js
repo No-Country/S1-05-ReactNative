@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "#4D6CFE",
     paddingBottom: 20,
+    paddingTop:35,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
   chartLoading: {
     backgroundColor: "#2D4CdE",
     color: "white",
-    height:300,
+    height:280,
     alignItems: "center",
     justifyContent: "center",
   },

@@ -32,7 +32,7 @@ export const HomeScreen = () => {
         name='Coin Details'
         component={CoinDetails}
         options={{
-          headerBackTitleVisible: false,
+          headerShown: false,
         }}
       />
     </Stack.Navigator>

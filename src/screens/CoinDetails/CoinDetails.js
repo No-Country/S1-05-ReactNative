@@ -36,7 +36,7 @@ const CoinDetails = ({ route }) => {
   useEffect(() => {
     loadData();
   }, [coin]);
-
+  
   return (
     <View style={styles.container}>
       <View style={styles.header}>
