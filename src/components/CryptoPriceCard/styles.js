@@ -9,12 +9,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 10,
     alignItems: "center",
+    justifyContent:"flex-start"    
   },
   imageCrypto: {
     width: 30,
     height: 30,
     marginRight: 15,
   },
+  imageCryptoContent:{
+    marginLeft:6,
+    marginRight:3
+  },
+  textCrypto:{
+    marginLeft:3
+  },
+  rankCrypto:{
+    fontWeight:"bold",
+    minWidth:25
+  }
 });
 
 export default styles;
