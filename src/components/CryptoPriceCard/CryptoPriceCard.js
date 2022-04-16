@@ -4,11 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import PropTypes from 'prop-types'
 import styles from "./styles";
 
-//import { formatNumber } from "../../helpers/numbers";
+import { formatNumber } from "../../helpers/numbers";
 
 const CryptoPriceCard = ({ item }) => {
   const navigation = useNavigation();
-  const { symbol, image, current_price } = item;
+  const { symbol, image, current_price, market_cap_rank } = item;
 
   return (
     <>
@@ -20,7 +20,10 @@ const CryptoPriceCard = ({ item }) => {
         }
       >
         <View style={styles.cardCrypto}>
-          <View>
+          <View style = {styles.rankCrypto}>
+            <Text>{market_cap_rank}°</Text>
+          </View>
+          <View style = {styles.imageCryptoContent}>
             <Image
               style={styles.imageCrypto}
               source={{
@@ -28,10 +31,9 @@ const CryptoPriceCard = ({ item }) => {
               }}
             />
           </View>
-          <View>
+          <View style = {styles.textCrypto} >
             <Text>
-              1 {symbol.toUpperCase()} = {current_price}
-              USD
+              {" "+symbol.toUpperCase()} = {formatNumber(current_price)+" "} USD
             </Text>
           </View>
         </View>

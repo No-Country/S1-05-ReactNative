@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 
 import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
 import CryptoChart from "../../components/CryptoChart/CryptoChart";
-//import { formatNumber } from "../../helpers/numbers";
-import loadingSVG from "../../../assets/images/loading.svg";
+import { formatNumber } from "../../helpers/numbers";
+//import loadingSVG from "../../../assets/images/loading.svg";
 
 const CoinDetails = ({ route }) => {
   const { coin } = route.params;
@@ -56,7 +56,7 @@ const CoinDetails = ({ route }) => {
         <View style={styles.coinDetailPrice}>
           <View>
             <Text style={styles.price}>
-              1 {coin.symbol.toUpperCase()} = {coin.current_price}{" "}
+              1 {coin.symbol.toUpperCase()} = {formatNumber(coin.current_price)}{" "}
               USD
             </Text>
           </View>
@@ -88,7 +88,7 @@ const CoinDetails = ({ route }) => {
         <View style={styles.rung}>
           <View>
             <Text style={styles.text}>
-              Market Cap: {coin.market_cap} USD
+              Market Cap: {formatNumber(coin.market_cap)} USD
             </Text>
           </View>
         </View>
