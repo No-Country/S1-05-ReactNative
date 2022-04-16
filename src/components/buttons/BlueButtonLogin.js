@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import style from "./styles"
 
-const BlueButtonLogin = () => {
+const BlueButtonLogin = ({ navigation }) => {
   return (
     <View style={style.buttonContainer}>
       <TouchableOpacity
@@ -10,6 +10,7 @@ const BlueButtonLogin = () => {
           ...style.button,
           backgroundColor: "#4D6CFE"
         }}
+        onPress={() => { navigation.navigate('TabScreen') }}
       >
         <Text
           style={{

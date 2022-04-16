@@ -11,10 +11,12 @@
         "Navigations",
         "reactnative",
         "Registrarse",
-        "registrarte"
+        "registrarte",
+        "setcurrent"
     ],
     "cSpell.ignoreWords": [
         "Nadt",
+        "Natigation",
         "Svwt",
         "Unknta",
         "appspot",

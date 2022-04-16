@@ -1,29 +1,22 @@
 /* eslint-disable no-undef */
 //import React, {useState, useEffect} from 'react';
 import React from 'react';
-import { View, Text, TextInput, Image } from 'react-native';
+import { View, Button, TextInput, Image } from 'react-native';
 import styles from './styles'
 import BlueButton from '../../components/buttons/BlueButton'
 import BlueButtonLogin from '../../components/buttons/BlueButtonLogin';
+import { NavigationContainer } from '@react-navigation/native';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { initializeApp } from 'firebase/app'
 import { firebaseConfig } from '../../firebase/firebase'
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AppNavigations from '../../navigations/AppNavigations'
-import { Alert } from 'react-native-web';
+import { Alert } from 'react-native';
+import Home from '../Home/Home'
+
 
 const Tab = createNativeStackNavigator();
 
-const HomeScreen = () => {
-  return (
-    <View>
-      <Text>Home Screen</Text>
-    </View>
-  )
-}
-
-const Login = () => {
+const Login = ({ navigation }) => {
   const [fullName, setFullName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -40,7 +33,17 @@ const Login = () => {
         console.log(user)
       })
       .catch(error => {
-        Alert.alert("This Email is already in use", error.message)
+        const atSign = email.indexOf("@")
+        
+        console.log(email.indexOf("@"))
+
+        const point =  email.lastIndexOf(".")
+
+        if (atSign < 1 || ( point - atSign < 2 )|| email === ""){
+          Alert.alert("Your email or password are wrong")
+        }else{
+          Alert.alert("This Email is already in use", error.message)
+          }
       })
   }
 
@@ -82,12 +85,12 @@ const Login = () => {
         style={styles.inputs}
         placeholder="PHONE"
       />
-
       <BlueButton
         onPressProp={ handleCreateAccount }
       />
       <BlueButtonLogin 
         onPressProp={ handleSingIn }
+        navigation= {navigation}
       />
     </View>
   )

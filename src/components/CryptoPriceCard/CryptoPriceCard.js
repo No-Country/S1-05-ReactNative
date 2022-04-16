@@ -4,6 +4,7 @@ import styles from "./styles";
 
 const CryptoPriceCard = ({ symbol, image, price }) => {
   //console.log(symbol);
+  //{symbol.toUpperCase()}
   return (
     <>
       <View style={styles.cardCrypto}>
@@ -17,7 +18,7 @@ const CryptoPriceCard = ({ symbol, image, price }) => {
         </View>
         <View>
           <Text>
-            1 {symbol.toUpperCase()} = {price} USD
+            1 $  = {price} USD
           </Text>
         </View>
       </View>
