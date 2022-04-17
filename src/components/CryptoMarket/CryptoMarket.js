@@ -54,6 +54,7 @@ const CryptoMarket = () => {
         </View>
         :
         <FlatList
+          showsVerticalScrollIndicator={false}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           style={styles.cryptoList}
           data={coins}
