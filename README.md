@@ -1,7 +1,6 @@
 # Wallet for Cryptos using React Native
 
 <h2>collaborators</h2>
-<p>Put your name here</p>
 <p>Bryan Scalzo</p>
 <p>Alejo Piñeiro</p>
 <p>Luca Rojas Massey</p>
