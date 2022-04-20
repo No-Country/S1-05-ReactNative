@@ -9,6 +9,7 @@ const SellCrypto = () => {
   const [selectedCoin, setSelectedCoin] = useState("BTC");
   const [crypto, setCrypto] = useState("0");
   const [currentValue, setcurrentValue] = useState(0);
+
   function changeCurrentValue() {
     coins.map((word) => {
       if (word.symbol === selectedCoin) {
