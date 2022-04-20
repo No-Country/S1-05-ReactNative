@@ -26,7 +26,7 @@ const Login = ({ navigation }) => {
   const auth = getAuth(app)
 
   const handleCreateAccount = () => {
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password, fullName, phone)
       .then((userCredential) => {
         console.log('Account created!')
         const user = userCredential.user
@@ -69,6 +69,7 @@ const Login = ({ navigation }) => {
       <TextInput
         style={styles.inputs}
         placeholder="FULL NAME"
+        onChangeText={(text) => setFullName(text)}
       />
       <TextInput
         style={styles.inputs}
@@ -84,6 +85,7 @@ const Login = ({ navigation }) => {
       <TextInput
         style={styles.inputs}
         placeholder="PHONE"
+        onChangeText={(text) => setPhone(text)}
       />
       <BlueButton
         onPressProp={ handleCreateAccount }
