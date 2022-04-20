@@ -2,7 +2,7 @@ import { View, Text, TextInput, Button, Alert } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 
-const AddCash = () => {
+const AddCash = ({ navigation }) => {
   const [cash, setCash] = useState("0");
 
   return (
@@ -28,7 +28,7 @@ const AddCash = () => {
           title="ADD MONEY"
           color="#4D6CFE"
           accessibilityLabel="ADD MONEY"
-          onPress={() => Alert.alert("money added successfully")}
+          onPress={() => navigation.navigate("Home", { cash })}
         />
       </View>
     </View>
