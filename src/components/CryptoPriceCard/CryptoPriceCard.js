@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import styles from "./styles";
 
 import { formatNumber } from "../../helpers/numbers";
@@ -20,20 +20,21 @@ const CryptoPriceCard = ({ item }) => {
         }
       >
         <View style={styles.cardCrypto}>
-          <View style = {styles.rankCrypto}>
+          <View style={styles.rankCrypto}>
             <Text>{market_cap_rank}°</Text>
           </View>
-          <View style = {styles.imageCryptoContent}>
+          <View style={styles.imageCryptoContent}>
             <Image
               style={styles.imageCrypto}
               source={{
-                uri:image,
+                uri: image,
               }}
             />
           </View>
-          <View style = {styles.textCrypto} >
+          <View style={styles.textCrypto}>
             <Text>
-              {" "+symbol.toUpperCase()} = {formatNumber(current_price)+" "} USD
+              {" " + symbol.toUpperCase()} = {formatNumber(current_price) + " "}{" "}
+              USD
             </Text>
           </View>
         </View>
@@ -45,5 +46,5 @@ const CryptoPriceCard = ({ item }) => {
 export default CryptoPriceCard;
 
 CryptoPriceCard.propTypes = {
-  item: PropTypes.object.isRequired
-}
+  item: PropTypes.object.isRequired,
+};

@@ -11,11 +11,12 @@ import CoinDetails from "../screens/CoinDetails/CoinDetails";
 import BuyCrypto from "../screens/BuyCrypto/BuyCrypto";
 import SellCrypto from "../screens/SellCrypto/SellCrypto";
 import AddCash from "../screens/AddCash/AddCash";
+import Login from "../screens/login/Login";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-export const HomeScreen = () => {
+function HomeScreen() {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -29,7 +30,7 @@ export const HomeScreen = () => {
       <Stack.Screen name="SellCrypto" component={SellCrypto} />
       <Stack.Screen name="AddCash" component={AddCash} />
       <Stack.Screen
-        name='Coin Details'
+        name="Coin Details"
         component={CoinDetails}
         options={{
           headerShown: false,
@@ -37,57 +38,70 @@ export const HomeScreen = () => {
       />
     </Stack.Navigator>
   );
-};
+}
 
+function TabScreen() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+      }}
+    >
+      <Tab.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Wallet"
+        component={Wallet}
+        options={{
+          tabBarLabel: "Wallet",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="wallet" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 const AppNavigations = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarHideOnKeyboard: true,
-        }}
-      >
-        <Tab.Screen
-          name="HomeScreen"
-
-          component={HomeScreen}
-
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={Login}
           options={{
             headerShown: false,
-            tabBarLabel: "Home",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
-            ),
           }}
         />
-        <Tab.Screen
-          name="Wallet"
-          component={Wallet}
+        <Stack.Screen
+          name="TabScreen"
+          component={TabScreen}
           options={{
-            tabBarLabel: "Wallet",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="wallet" color={color} size={size} />
-            ),
+            headerShown: false,
           }}
         />
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            tabBarLabel: "Profile",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account"
-                color={color}
-                size={size}
-              />
-            ),
-          }}
-        />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
-
-
   );
 };
+
 export default AppNavigations;
