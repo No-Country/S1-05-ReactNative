@@ -4,13 +4,13 @@ const styles = StyleSheet.create({
     container: {
       width: 400, 
       height: 400,
-      top: 40, 
+      top: 100, 
       flex: 1,
       alignItems: 'center'
     },
     splashImage: {
-      width: 120, 
-      height: 120,
+      width: 220, 
+      height: 220,
       bottom: 20
     },
     inputs: {

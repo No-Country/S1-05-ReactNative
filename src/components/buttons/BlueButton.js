@@ -3,7 +3,7 @@ import React from 'react'
 import style from "./styles"
 
 // eslint-disable-next-line react/prop-types
-function BlueButton({ onPressProp }) {
+function BlueButton({ onPressProp, text}) {
   return (
     <View style={style.buttonContainer}>
       <TouchableOpacity
@@ -18,7 +18,7 @@ function BlueButton({ onPressProp }) {
             ...style.buttonText,
             color: "#f1f1f1",
           }}>
-          signUp
+          {text}
         </Text>
       </TouchableOpacity>
     </View>
