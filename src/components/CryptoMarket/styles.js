@@ -16,6 +16,22 @@ const styles = StyleSheet.create({
   cryptoList: {
     width: "100%",
   },
+  loadingCard: {
+    flexDirection: "row",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  loadingImg: {
+    width: 50,
+    height: 50,
+    margin:10
+  },
+  loadingText:{
+    color:"#555",
+    textAlign:"center",
+    marginTop:10
+  }
 });
 
 export default styles;
