@@ -1,11 +1,9 @@
 /* eslint-disable no-undef */
 //import React, {useState, useEffect} from 'react';
 import React from "react";
-import { View, Button, TextInput, Image } from "react-native";
+import { View, TextInput, Image } from "react-native";
 import styles from "./styles";
 import BlueButton from "../../components/buttons/BlueButton";
-import BlueButtonLogin from "../../components/buttons/BlueButtonLogin";
-import { NavigationContainer } from "@react-navigation/native";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -15,7 +13,6 @@ import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../../firebase/firebase";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Alert } from "react-native";
-import Home from "../Home/Home";
 
 const Tab = createNativeStackNavigator();
 
@@ -31,9 +28,10 @@ const Login = ({ navigation }) => {
   const handleCreateAccount = () => {
     createUserWithEmailAndPassword(auth, email, password, fullName, phone)
       .then((userCredential) => {
-        console.log("Account created!");
+        console.log("Account created successfully!");
         const user = userCredential.user;
         console.log(user);
+        Alert.alert("Account created successfully!");
       })
       .catch((error) => {
         const atSign = email.indexOf("@");
@@ -45,7 +43,8 @@ const Login = ({ navigation }) => {
         if (atSign < 1 || point - atSign < 2 || email === "") {
           Alert.alert("Your email or password are wrong");
         } else {
-          Alert.alert("This Email is already in use", error.message);
+          Alert.alert("This Email is already in use" /*, error.message*/);
+          console.log(error.message);
         }
       });
   };
@@ -53,12 +52,13 @@ const Login = ({ navigation }) => {
   const handleSingIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("Signed in!");
+        //Alert.alert("Signed in!");
         const user = userCredential.user;
-        console.log(user);
+        navigation.navigate("TabScreen");
       })
       .catch((error) => {
-        Alert.alert(error.message);
+        Alert.alert("An error was succed, try again");
+        console.log(error.message);
       });
   };
 
@@ -88,8 +88,8 @@ const Login = ({ navigation }) => {
         placeholder="PHONE"
         onChangeText={(text) => setPhone(text)}
   />*/}
-      <BlueButton onPressProp={handleCreateAccount} />
-      <BlueButtonLogin onPressProp={handleSingIn} navigation={navigation} />
+      <BlueButton onPressProp={handleCreateAccount} text="Sign Up" />
+      <BlueButton onPressProp={handleSingIn} text="Login" />
     </View>
   );
 };

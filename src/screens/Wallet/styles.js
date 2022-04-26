@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
+    padding: 0,
+  },
+  walletList: {
+    width: "100%",
+    padding: 20,
   },
 });
 

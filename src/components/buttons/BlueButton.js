@@ -1,15 +1,15 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
-import style from "./styles"
+import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import style from "./styles";
 
 // eslint-disable-next-line react/prop-types
-function BlueButton({ onPressProp }) {
+function BlueButton({ onPressProp, text }) {
   return (
     <View style={style.buttonContainer}>
       <TouchableOpacity
         style={{
           ...style.button,
-          backgroundColor: "#4D6CFE"
+          backgroundColor: "#4D6CFE",
         }}
         onPress={onPressProp}
       >
@@ -17,12 +17,13 @@ function BlueButton({ onPressProp }) {
           style={{
             ...style.buttonText,
             color: "#f1f1f1",
-          }}>
-          signUp
+          }}
+        >
+          {text}
         </Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 }
 
-export default BlueButton
+export default BlueButton;

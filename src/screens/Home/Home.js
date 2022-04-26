@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons/";
@@ -6,21 +6,40 @@ import CryptoMarket from "../../components/CryptoMarket/CryptoMarket";
 import { useRoute } from "@react-navigation/native";
 import { RotationGestureHandler } from "react-native-gesture-handler";
 import { roundToNearestPixel } from "react-native/Libraries/Utilities/PixelRatio";
+import axios from "axios";
 
 const Home = ({ navigation }) => {
   const [cash, setCash] = useState(0);
   const route = useRoute();
 
+  async function loadCash() {
+    try {
+      const response = await axios.get("http://10.0.2.2:3000/user");
+      let midata = response.data;
+      setCash(midata[0].cash);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   function mycash() {
     if (route.params != undefined) {
-      let suma = parseInt(cash) + parseInt(route.params.cash);
-      setCash(suma);
+      setCash(cash);
       return cash;
     } else return cash;
   }
   useEffect(() => {
-    mycash(setCash);
-  }, [route.params]);
+    loadCash();
+    navigation.addListener("focus", async () => {
+      try {
+        const response = await axios.get("http://10.0.2.2:3000/user");
+        let midata = response.data;
+        setCash(midata[0].cash);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }, []);
 
   return (
     <View style={styles.homeContainer}>
@@ -34,7 +53,7 @@ const Home = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.myBalance}>
-          <Text style={styles.balanceNumber}>{cash}</Text>
+          <Text style={styles.balanceNumber}>$ {cash}</Text>
 
           <Text style={styles.balanceText}>My USD Balance</Text>
         </View>
@@ -42,7 +61,7 @@ const Home = ({ navigation }) => {
           <TouchableOpacity
             style={styles.operations}
             onPress={() => {
-              navigation.navigate("AddCash");
+              navigation.navigate("AddCash", { cash });
             }}
           >
             <MaterialCommunityIcons
@@ -69,7 +88,7 @@ const Home = ({ navigation }) => {
           <TouchableOpacity
             style={styles.operations}
             onPress={() => {
-              navigation.navigate("SellCrypto");
+              navigation.navigate("SellCrypto", { cash });
             }}
           >
             <MaterialCommunityIcons
